@@ -3,359 +3,418 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Brief du dimanche 12 juillet 2026</title>
+<title>Le Brief — 12 juillet 2026</title>
 <style>
-  :root {
-    --bg: #f7f6f3;
-    --card-bg: #ffffff;
-    --text: #1c1c1e;
-    --muted: #6b6b70;
-    --accent: #c0392b;
-    --border: #e5e3de;
-    --highlight-bg: #f2ede6;
+  :root{
+    --bg:#f7f6f3; --surface:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b;
+    --line:#e4e2dc; --accent:#2f5d50; --accent-soft:#e8f0ed; --hero:#2f5d50;
+    --radius:12px; --maxcol:1180px;
+    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 24px 16px 60px;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-  }
-  header.masthead {
-    max-width: 1200px;
-    margin: 0 auto 28px;
-    text-align: center;
-    padding-bottom: 18px;
-    border-bottom: 3px solid var(--text);
-  }
-  header.masthead h1 {
-    margin: 0 0 4px;
-    font-size: 2.1rem;
-    letter-spacing: -0.5px;
-  }
-  header.masthead p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.95rem;
-    text-transform: capitalize;
-  }
-  .grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: block;
-  }
-  @media (min-width: 800px) {
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15171a; --surface:#1e2126; --ink:#ecece9; --muted:#9aa0a6;
+      --line:#2c3038; --accent:#7fc8b3; --accent-soft:#20302b; --hero:#7fc8b3;
     }
   }
-  section.theme {
-    max-width: 700px;
-    margin: 0 auto 32px;
-  }
-  @media (min-width: 800px) {
-    section.theme { max-width: none; margin: 0 0 28px; }
-  }
-  section.theme h2 {
-    font-size: 1.3rem;
-    margin: 0 0 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--border);
-  }
-  article.actu {
-    display: flex;
-    gap: 12px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 14px;
-  }
-  article.actu img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
-  }
-  article.actu .content { flex: 1; min-width: 0; }
-  article.actu h3 {
-    margin: 0 0 8px;
-    font-size: 1.02rem;
-    font-weight: 700;
-    line-height: 1.35;
-  }
-  .why {
-    background: var(--highlight-bg);
-    border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 0.9rem;
-    margin: 8px 0;
-  }
-  details {
-    margin-top: 8px;
-    font-size: 0.9rem;
-  }
-  summary {
-    cursor: pointer;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.87rem;
-    list-style: none;
-  }
-  summary::-webkit-details-marker { display: none; }
-  details p, details ul {
-    margin: 6px 0 0;
-    color: var(--text);
-  }
-  details ul { padding-left: 18px; }
-  details a { color: var(--accent); }
-  .empty {
-    color: var(--muted);
-    font-style: italic;
-    font-size: 0.92rem;
-  }
-  footer {
-    max-width: 1200px;
-    margin: 24px auto 0;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.82rem;
-    border-top: 1px solid var(--border);
-    padding-top: 14px;
-  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+    line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxcol);margin:0 auto;padding:24px 16px 60px;}
+
+  .brief-header{text-align:center;padding:8px 0 16px;border-bottom:2px solid var(--line);}
+  .brief-title{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin:0;}
+  .brief-date{color:var(--muted);font-size:1rem;margin-top:4px;text-transform:capitalize;}
+
+  .brief-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 24px;}
+  .brief-nav a{text-decoration:none;color:var(--accent);background:var(--accent-soft);
+    padding:6px 12px;border-radius:999px;font-size:.9rem;font-weight:600;}
+
+  .brief-hero{background:var(--accent);color:#fff;border-radius:var(--radius);
+    padding:18px 20px;margin-bottom:28px;}
+  @media (prefers-color-scheme: dark){.brief-hero{color:#0f1113;}}
+  .brief-hero .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;
+    opacity:.85;font-weight:700;margin-bottom:6px;}
+  .brief-hero .hero-title{font-size:1.25rem;font-weight:800;margin:0 0 6px;line-height:1.25;}
+  .brief-hero .hero-line{font-size:.95rem;opacity:.92;margin:0 0 10px;}
+  .brief-hero a.hero-link{color:#fff;font-weight:700;text-decoration:underline;font-size:.9rem;}
+  @media (prefers-color-scheme: dark){.brief-hero a.hero-link{color:#0f1113;}}
+
+  .brief-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media (min-width:800px){.brief-grid{grid-template-columns:1fr 1fr;gap:28px 32px;}}
+
+  .theme{break-inside:avoid;}
+  .theme-title{font-size:1.15rem;font-weight:800;margin:0 0 14px;padding-bottom:8px;
+    border-bottom:2px solid var(--line);}
+  .theme-title .count{color:var(--muted);font-weight:600;font-size:.9rem;}
+  .theme-empty{color:var(--muted);font-style:italic;font-size:.95rem;}
+
+  .actu{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;margin-bottom:14px;}
+  .actu-head{display:flex;gap:12px;align-items:flex-start;}
+  .actu-thumb{width:88px;height:88px;flex:0 0 88px;object-fit:cover;border-radius:8px;
+    background:var(--accent-soft);}
+  .actu-body{flex:1 1 auto;min-width:0;}
+  .actu-title{font-size:1rem;font-weight:700;margin:0 0 4px;line-height:1.3;}
+  .actu-meta{font-size:.78rem;color:var(--muted);margin-bottom:8px;}
+  .actu-meta .src{font-weight:600;}
+
+  .pourquoi{background:var(--accent-soft);border-radius:8px;padding:8px 10px;
+    font-size:.86rem;margin:8px 0;}
+  .pourquoi b{color:var(--accent);}
+
+  details{margin-top:6px;}
+  details summary{cursor:pointer;list-style:none;color:var(--accent);font-weight:600;
+    font-size:.85rem;padding:4px 0;user-select:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{content:" ▾";}
+  details[open] summary::after{content:" ▴";}
+  .resume-txt{font-size:.9rem;color:var(--ink);padding:4px 0 2px;}
+  .sources-list{margin:6px 0 0;padding-left:18px;font-size:.85rem;}
+  .sources-list a{color:var(--accent);}
+
+  .brief-footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
+    text-align:center;color:var(--muted);font-size:.82rem;}
 </style>
 </head>
 <body>
+<div class="wrap">
+  <header class="brief-header">
+    <h1 class="brief-title">Le Brief</h1>
+    <div class="brief-date">Dimanche 12 juillet 2026</div>
+  </header>
+  <nav class="brief-nav">
+    <a href="#france-monde">🌍 France &amp; Monde</a>
+    <a href="#ia">🤖 IA</a>
+    <a href="#apple">🍎 Apple &amp; Mac</a>
+    <a href="#jeux">🎮 Jeux vidéo</a>
+    <a href="#tech">💻 Tech &amp; Geek</a>
+  </nav>
 
-<header class="masthead">
-  <h1>Le Brief du dimanche 12 juillet 2026</h1>
-  <p>Revue de presse quotidienne de Julien</p>
-</header>
-
-<div class="grid">
-
-  <section class="theme">
-    <h2>🌍 France &amp; Monde</h2>
-
-    <article class="actu">
-      <div class="content">
-        <h3>Canicule : 37 départements en vigilance rouge, « danger extrême »</h3>
-        <div class="why">🎯 Pourquoi c'est important : risque sanitaire majeur pour environ 26 millions de Français, et menace directe sur les festivités du 14-Juillet.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Météo-France a placé 37 départements, dont toute l'Île-de-France, en vigilance rouge canicule dès dimanche midi, avec des pointes jusqu'à 41°C. La Tour Eiffel a fermé temporairement au public samedi et dimanche après-midi.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.franceinfo.fr/environnement/meteo/alertes-meteo-et-vigilances/alerte-vigilance-rouge-canicule-risque-tres-eleve-pour-la-sante-dans-37-departements-ce-12-juillet-2026_8104817.html" target="_blank" rel="noopener">franceinfo — vigilance rouge, 37 départements</a></li>
-            <li><a href="https://www.franceinfo.fr/environnement/meteo/bulletins-meteo/meteo-france-place-37-departements-en-vigilance-rouge-canicule-a-partir-de-dimanche-midi-46-en-vigilance-orange_8104178.html" target="_blank" rel="noopener">franceinfo — carte de vigilance</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <article class="actu">
-      <div class="content">
-        <h3>Liban : une frappe israélienne fait un mort, la France confirme sa participation à une coalition de soutien à l'armée libanaise</h3>
-        <div class="why">🎯 Pourquoi c'est important : le cessez-le-feu israélo-libanais reste fragile, avec un risque d'escalade régionale impliquant directement la diplomatie française.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Une frappe israélienne a tué au moins une personne le 10 juillet dans le sud du Liban, malgré le cessez-le-feu en vigueur depuis juin. Paris a confirmé sa participation, aux côtés des États-Unis et de l'Italie, à une coalition de soutien à l'armée libanaise.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.franceinfo.fr/monde/iran/guerre-entre-les-etats-unis-israel-et-l-iran/au-liban-une-frappe-israelienne-fait-au-moins-un-mort-dans-le-sud-du-pays_8103380.html" target="_blank" rel="noopener">franceinfo — frappe au Liban</a></li>
-            <li><a href="https://www.france24.com/fr/moyen-orient/20260626-en-direct-moyen-orient-iran-etats-unis-frappes-attaques-navire-detroit-dormuz" target="_blank" rel="noopener">France 24 — suivi Moyen-Orient</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+  <section class="brief-hero">
+    <div class="eyebrow">🔥 À ne pas rater</div>
+    <h2 class="hero-title">Vigilance rouge canicule : 37 départements en alerte, risque très élevé pour la santé</h2>
+    <p class="hero-line">Météo-France place treize départements en vigilance rouge dès dimanche 12h, dont l'Île-de-France et une partie du Sud-Est sont concernées par une chaleur intense.</p>
+    <a class="hero-link" href="https://www.franceinfo.fr/environnement/meteo/alertes-meteo-et-vigilances/alerte-vigilance-rouge-canicule-risque-tres-eleve-pour-la-sante-dans-37-departements-ce-12-juillet-2026_8104817.html">Lire l'article →</a>
   </section>
 
-  <section class="theme">
-    <h2>🤖 IA</h2>
+  <div class="brief-grid">
 
-    <article class="actu">
-      <div class="content">
-        <h3>Claude Cowork d'Anthropic arrive sur web et mobile</h3>
-        <div class="why">🎯 Pourquoi c'est important : Anthropic positionne Claude comme un agent de travail persistant, capable de suivre l'utilisateur d'un appareil à l'autre.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Anthropic déploie Claude Cowork en bêta sur web et mobile, d'abord pour les abonnés Max, avec exécution de tâches en arrière-plan même sans ordinateur ouvert.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.usine-digitale.fr/intelligence-artificielle/anthropic/claude-cowork-danthropic-debarque-enfin-sur-web-et-mobile-retour-sur-cette-fonctionnalite-que-tous-les-employes-de-bureau-vont-sarracher.RVGI4FG5PZGYRP22ZH2O7627W4.html" target="_blank" rel="noopener">L'Usine Digitale — Claude Cowork</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+    <section class="theme" id="france-monde">
+      <h3 class="theme-title">🌍 France &amp; Monde <span class="count">(5)</span></h3>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Anthropic durcit ses restrictions d'accès à Claude en Chine, malgré des contournements</h3>
-        <div class="why">🎯 Pourquoi c'est important : illustre les tensions géopolitiques croissantes autour de l'accès aux modèles d'IA de pointe.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Anthropic multiplie les contrôles (vérification d'identité, blocage de paiements chinois) pour empêcher les entreprises contrôlées depuis la Chine d'accéder à Claude, sans y parvenir totalement.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.usine-digitale.fr/intelligence-artificielle/anthropic/face-aux-restrictions-danthropic-les-entreprises-technologiques-chinoises-multiplient-les-strategies-pour-acceder-a-claude.IQFUOWEDT5AO7CMFY3JWMN7OZQ.html" target="_blank" rel="noopener">L'Usine Digitale — restrictions Chine</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
-  </section>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Gaza : Israël contrôlerait désormais près de 65 % du territoire malgré le cessez-le-feu</h4>
+            <div class="actu-meta"><span class="src">AP News</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> L'extension des zones sous contrôle israélien fragilise la trêve en cours et interroge sur sa tenue dans les prochaines semaines.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Les forces israéliennes ont continué à progresser dans la bande de Gaza ces derniers jours malgré l'accord de cessez-le-feu, selon des sources concordantes.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.france24.com/en/">France 24 — suivi du dossier Gaza</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-  <section class="theme">
-    <h2>🍎 Apple &amp; Mac</h2>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Iran : Trump évoque la fin du cessez-le-feu et exige la réouverture du détroit d'Ormuz</h4>
+            <div class="actu-meta"><span class="src">Reuters</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Une reprise des tensions dans le détroit d'Ormuz aurait un impact direct sur les cours du pétrole et la stabilité régionale.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Washington a réclamé une déclaration publique de Téhéran garantissant l'ouverture du détroit, après plusieurs jours de frappes réciproques.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.france24.com/en/">France 24 — tensions Iran/États-Unis</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Apple perd sa bataille juridique contre l'UE sur son statut de « gatekeeper »</h3>
-        <div class="why">🎯 Pourquoi c'est important : Apple devra continuer d'autoriser magasins d'applications tiers et interopérabilité en Europe, sans marge de recours nationale supplémentaire.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>La justice européenne a rejeté, le 8 juillet, le recours d'Apple contre sa désignation comme contrôleur d'accès au titre du DMA pour l'App Store et iOS. Apple envisage un appel devant la Cour de justice de l'UE.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.macrumors.com/2026/07/08/apple-loses-eu-fight-app-store-gatekeeper-label/" target="_blank" rel="noopener">MacRumors — Apple perd face à l'UE</a></li>
-            <li><a href="https://9to5mac.com/2026/07/08/apple-loses-major-antitrust-appeal-in-europe-remains-a-gatekeeper/" target="_blank" rel="noopener">9to5Mac — appel antitrust rejeté</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Sommet de l'OTAN : Washington autorisera l'Ukraine à produire ses propres systèmes Patriot</h4>
+            <div class="actu-meta"><span class="src">Reuters</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Ce transfert de licence marquerait un renforcement durable des capacités de défense antiaérienne ukrainiennes.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">En marge du sommet de l'OTAN en Turquie, Donald Trump a annoncé cette licence de production lors d'un entretien avec Volodymyr Zelensky.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.france24.com/en/">France 24 — sommet de l'OTAN</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>[Rumeur] iPhone 18 Pro : Dynamic Island réduit et gros bond caméra, sortie visée le 8 septembre</h3>
-        <div class="why">🎯 Pourquoi c'est important : premiers signaux concrets sur le design de la gamme iPhone 2026, avant l'arrivée du premier iPhone pliable.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Selon Mark Gurman, l'iPhone 18 Pro (6,3") et Pro Max (6,9") arriveraient à l'automne avec un Dynamic Island repositionné et une caméra principale à ouverture variable — une première pour l'iPhone.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.macrumors.com/2026/07/04/top-stories-macbook-ultra-iphone-18-rumors/" target="_blank" rel="noopener">MacRumors — rumeurs iPhone 18</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Espagne : un incendie meurtrier frappe la province d'Almería, plusieurs victimes retrouvées dans des véhicules calcinés</h4>
+            <div class="actu-meta"><span class="src">AP News</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Le drame illustre le risque accru de feux de forêt en Europe du Sud pendant les vagues de chaleur, alors que la France est elle-même en vigilance rouge.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Plusieurs victimes seraient mortes en tentant de fuir les flammes en voiture dans cette région touristique très fréquentée l'été.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.france24.com/en/">France 24 — incendies en Espagne</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>macOS 27 « Golden Gate » : la bêta publique attendue dans les prochains jours</h3>
-        <div class="why">🎯 Pourquoi c'est important : premier aperçu public du prochain macOS avant la keynote de rentrée d'Apple.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Mac4Ever indique que la bêta publique de macOS 27 « Golden Gate » devrait être ouverte aux testeurs dans les tout prochains jours.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.mac4ever.com/archives" target="_blank" rel="noopener">Mac4Ever — archives juillet 2026</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Canicule à Paris : la Tour Eiffel ferme ses portes l'après-midi, RATP et SNCF perturbées</h4>
+            <div class="actu-meta"><span class="src">Le Parisien</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> La chaleur extrême affecte directement les déplacements et les sorties en Île-de-France ce week-end, y compris pour les Franciliens.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">La Tour Eiffel ferme au public à partir de 16h les 11 et 12 juillet, et plusieurs lignes RER/Transilien/métro sont affectées par des travaux et perturbations.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.leparisien.fr/">Le Parisien — Paris &amp; Île-de-France</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Microsoft coupe le support d'Office 2019 sur Mac à partir du 13 juillet</h3>
-        <div class="why">🎯 Pourquoi c'est important : les utilisateurs encore sous Office 2019 sur Mac basculent en lecture seule dès demain.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Passé le 13 juillet 2026, Office 2019 pour Mac perd son support actif et bascule en lecture seule selon Microsoft.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.mac4ever.com/actu" target="_blank" rel="noopener">Mac4Ever — actualité Mac</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
-  </section>
+    </section>
 
-  <section class="theme">
-    <h2>🎮 Jeux vidéo</h2>
+    <section class="theme" id="ia">
+      <h3 class="theme-title">🤖 IA <span class="count">(6)</span></h3>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Xbox : Microsoft licencie 4 800 personnes, restructuration historique de la division</h3>
-        <div class="why">🎯 Pourquoi c'est important : environ 20 % des effectifs jeu vidéo de Xbox supprimés en un an, plusieurs studios cédés ou rendus indépendants.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Microsoft supprime environ 4 800 postes, dont 1 600 chez Xbox Game Studios. Compulsion Games et Double Fine deviennent indépendants ; Ninja Theory, Undead Labs et Arkane changent d'avenir.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.macg.co/ailleurs/2026/07/microsoft-licencie-4-800-personnes-la-division-xbox-paie-le-plus-lourd-tribut-309603" target="_blank" rel="noopener">MacGeneration — licenciements Xbox</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">OpenAI préparerait une introduction en bourse confidentielle, visant septembre 2026 à ~730 Md$ de valorisation</h4>
+            <div class="actu-meta"><span class="src">Numerama</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Une IPO à ce niveau ferait d'OpenAI l'une des plus grosses entrées en bourse tech de l'histoire.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Le dossier serait mené avec Goldman Sachs et Morgan Stanley, pour un débus en bourse envisagé dès septembre.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.numerama.com/feed/">Numerama — actualité IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Assassin's Creed Black Flag Resynced : le remake débarque sur PS5</h3>
-        <div class="why">🎯 Pourquoi c'est important : premier grand remake Ubisoft de l'année, avec retours haptiques et gâchettes adaptatives DualSense.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Sorti le 9 juillet, ce remake technique complet du classique Ubisoft profite des capacités spécifiques de la PS5.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.jeuxvideo.com/jeux/sorties/machine-22/annee-2026/mois-7/" target="_blank" rel="noopener">Jeuxvideo.com — sorties juillet 2026</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Anthropic dépasse OpenAI en chiffre d'affaires annualisé (~47 Md$ contre 25-33 Md$)</h4>
+            <div class="actu-meta"><span class="src">Numerama</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Un basculement notable dans le rapport de force économique entre les deux principaux laboratoires d'IA générative.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Anthropic afficherait désormais un revenu annualisé supérieur à celui d'OpenAI pour l'exercice 2026.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.numerama.com/feed/">Numerama — actualité IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-    <article class="actu">
-      <div class="content">
-        <h3>Palworld quitte l'early access : version 1.0 disponible sur PS5</h3>
-        <div class="why">🎯 Pourquoi c'est important : le phénomène « Pokémon-like » de 2024 franchit enfin l'étape de la sortie complète sur console Sony.</div>
-        <details>
-          <summary>Lire le résumé ▾</summary>
-          <p>Depuis le 10 juillet, Palworld propose sa version 1.0 complète sur PS5, après plusieurs mois d'accès anticipé.</p>
-        </details>
-        <details>
-          <summary>Sources ▾</summary>
-          <ul>
-            <li><a href="https://www.jeuxvideo.com/jeux/sorties/machine-22/annee-2026/mois-7/" target="_blank" rel="noopener">Jeuxvideo.com — sorties juillet 2026</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
-  </section>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Codex remplace ChatGPT dans la stratégie produit, GPT-5.6 annoncé pour concurrencer Fable</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> OpenAI réoriente son offre produit face à une concurrence de plus en plus dense (Anthropic, Google).</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">OpenAI enterrerait déjà son navigateur Atlas pour transformer ChatGPT en « super-app », tout en poussant Codex et GPT-5.6.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — actualité IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
-  <section class="theme">
-    <h2>💻 Tech &amp; Geek</h2>
-    <p class="empty">Rien de marquant aujourd'hui.</p>
-  </section>
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Chine : les IA « petites amies » jugées trop addictives sont interdites</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Pékin durcit sa régulation des compagnons virtuels IA, un sujet de préoccupation croissant à l'échelle mondiale.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Les autorités chinoises encadrent désormais strictement les IA conçues pour créer des relations affectives ou addictives.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — régulation IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
 
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Fidji Simo se retire de la direction de l'AGI chez OpenAI pour raisons de santé</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Le départ d'une dirigeante française de premier plan interroge sur l'organisation interne d'OpenAI.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Fidji Simo quitte ses fonctions de direction liées à l'AGI au sein d'OpenAI, invoquant des raisons de santé.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — actualité IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">[Rumeur] Gemini 3.5 Pro attendu le 17 juillet avec 2 millions de tokens de contexte</h4>
+            <div class="actu-meta"><span class="src">Numerama</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Un doublement de la fenêtre de contexte marquerait une avancée notable face à la concurrence, si confirmé.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Google DeepMind préparerait un mode « Deep Think » réservé à l'abonnement Ultra à 250 $/mois, non confirmé officiellement à ce stade.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.numerama.com/feed/">Numerama — rumeurs IA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="theme" id="apple">
+      <h3 class="theme-title">🍎 Apple &amp; Mac <span class="count">(4)</span></h3>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Apple poursuit OpenAI pour vol de secrets industriels liés à l'IA embarquée</h4>
+            <div class="actu-meta"><span class="src">MacRumors</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Apple accuse OpenAI d'avoir débauché plus de 400 anciens employés (puces, matériel, IA embarquée) dans une opération jugée coordonnée — un dossier majeur pour toute l'industrie IA.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">La plainte a été déposée le 11 juillet devant un tribunal fédéral de Californie du Nord. OpenAI a depuis réagi publiquement à ces accusations.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list">
+                <li><a href="https://www.macrumors.com/">MacRumors — Apple Sues OpenAI for Stealing Trade Secrets</a></li>
+                <li><a href="https://www.macrumors.com/">MacRumors — OpenAI Responds After Being Sued by Apple</a></li>
+                <li><a href="https://www.macg.co/">MacGeneration — Apple vs OpenAI, une opération minutieusement orchestrée ?</a></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Apple échoue à échapper au DMA pour iOS et l'App Store</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Apple reste soumise aux obligations d'ouverture du Digital Markets Act en Europe, avec des conséquences directes sur l'App Store.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Le recours d'Apple visant à limiter le périmètre du DMA sur iOS et l'App Store a été rejeté.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — Apple et le DMA</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">iOS 27 bêta 3 disponible : Siri personnalisable, Mail amélioré — mais bug de corruption APFS sur macOS 27 bêta</h4>
+            <div class="actu-meta"><span class="src">MacRumors</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Utile à connaître avant d'installer les bêtas sur un Mac de production, vu le bug de corruption de disque signalé.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">La troisième bêta développeur d'iOS 27 ajoute des options Siri et des améliorations Photos/Mail, tandis que macOS 27 bêta 3 souffre d'une série de corruptions APFS.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list">
+                <li><a href="https://www.macrumors.com/">MacRumors — iOS 27, What's New With Mail</a></li>
+                <li><a href="https://www.macg.co/">MacGeneration — macOS 27 bêta 3, corruptions APFS</a></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Apple réduirait ses prévisions de demande pour l'iPhone 17 face à la hausse des coûts</h4>
+            <div class="actu-meta"><span class="src">MacRumors</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Un signal à surveiller sur la santé des ventes iPhone à l'approche de la rentrée et de la gamme iPhone 18.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">La hausse des coûts composants pèserait sur les prévisions de demande de la gamme iPhone 17 actuelle.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macrumors.com/">MacRumors — Apple Slashes iPhone 17 Demand Forecast</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="theme" id="jeux">
+      <h3 class="theme-title">🎮 Jeux vidéo <span class="count">(3)</span></h3>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Sony confirme l'arrêt de la vente physique des jeux PlayStation dès janvier 2028</h4>
+            <div class="actu-meta"><span class="src">Push Square</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Cette décision confirme de facto une PS6 100 % numérique et marque un tournant pour les collectionneurs et le marché de l'occasion.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Sony a coupé ses comptes réseaux sociaux pendant cinq jours après l'annonce, très mal accueillie par une partie de la communauté.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.pushsquare.com/news">Push Square — arrêt du physique PlayStation</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Nouvelle mise à jour firmware PS5 (26.04-13.42.00) : stabilité et performances</h4>
+            <div class="actu-meta"><span class="src">Push Square</span> · 11 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Mise à jour système à installer pour profiter des correctifs de stabilité les plus récents.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Le firmware corrige principalement des problèmes de performance et de stabilité système, sans nouvelle fonctionnalité majeure annoncée.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.pushsquare.com/news">Push Square — mise à jour firmware PS5</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Palworld atteint sa version 1.0 complète sur PS5</h4>
+            <div class="actu-meta"><span class="src">Push Square</span> · 10 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Le jeu de survie/gestion très suivi quitte enfin l'accès anticipé sur PS5, avec du contenu complémentaire.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Disponible en accès anticipé depuis septembre 2024, Palworld sort désormais dans sa version finale sur PS5.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.pushsquare.com/news">Push Square — Palworld version 1.0</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="theme" id="tech">
+      <h3 class="theme-title">💻 Tech &amp; Geek <span class="count">(2)</span></h3>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Bruxelles demande à Meta de revoir le défilement infini de Facebook et Instagram</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> L'UE estime que l'« infinite scroll » pourrait enfreindre les règles sur les pratiques addictives, avec un impact potentiel sur des millions d'utilisateurs européens.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">La Commission européenne juge Instagram et Facebook potentiellement trop addictifs et demande à Meta d'ajuster son produit.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — Meta et l'UE</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="actu">
+        <div class="actu-head">
+          <div class="actu-body">
+            <h4 class="actu-title">Un Land allemand renonce aux outils collaboratifs Microsoft pour des raisons de souveraineté numérique</h4>
+            <div class="actu-meta"><span class="src">MacGeneration</span> · 11-12 juillet 2026</div>
+            <div class="pourquoi"><b>🎯 Pourquoi c'est important :</b> Un nouvel exemple du mouvement de souveraineté numérique européenne, un sujet suivi de près dans l'IT en entreprise.</div>
+            <details><summary>Lire le résumé</summary><div class="resume-txt">Ce Land allemand bascule vers des alternatives non-Microsoft pour ses outils collaboratifs internes.</div></details>
+            <details><summary>Sources</summary>
+              <ul class="sources-list"><li><a href="https://www.macg.co/">MacGeneration — souveraineté numérique</a></li></ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+
+  <footer class="brief-footer">20 actus · généré le 12 juillet 2026 à 06:00 (Europe/Paris)</footer>
 </div>
-
-<footer>
-  11 actus au total · généré le 12 juillet 2026 à 15:20 (Europe/Paris)
-</footer>
-
 </body>
 </html>
