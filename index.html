@@ -6,184 +6,177 @@
 <title>Le Brief du dimanche 12 juillet 2026</title>
 <style>
   :root {
-    --fm: #2563eb;
-    --ia: #7c3aed;
-    --apple: #64748b;
-    --jv: #16a34a;
-    --tech: #ea580c;
+    --bg: #f7f6f3;
+    --card-bg: #ffffff;
+    --text: #1c1c1e;
+    --muted: #6b6b70;
+    --accent: #c0392b;
+    --border: #e5e3de;
+    --highlight-bg: #f2ede6;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    padding: 24px 16px 48px;
-    background: #f7f7f5;
-    color: #1a1a1a;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 24px 16px 60px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.5;
   }
-  .wrap { max-width: 700px; margin: 0 auto; }
-  header.brief-header {
+  header.masthead {
+    max-width: 1200px;
+    margin: 0 auto 28px;
     text-align: center;
-    padding: 20px 0 24px;
+    padding-bottom: 18px;
+    border-bottom: 3px solid var(--text);
   }
-  header.brief-header h1 {
-    font-size: 1.6em;
+  header.masthead h1 {
     margin: 0 0 4px;
-    letter-spacing: -0.01em;
+    font-size: 2.1rem;
+    letter-spacing: -0.5px;
   }
-  header.brief-header p {
+  header.masthead p {
     margin: 0;
-    color: #666;
-    font-size: 0.95em;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-transform: capitalize;
+  }
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+  }
+  @media (min-width: 800px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
   }
   section.theme {
-    margin: 32px 0;
+    max-width: 700px;
+    margin: 0 auto 32px;
+  }
+  @media (min-width: 800px) {
+    section.theme { max-width: none; margin: 0 0 28px; }
   }
   section.theme h2 {
-    font-size: 1.25em;
+    font-size: 1.3rem;
     margin: 0 0 14px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #e5e5e0;
+    border-bottom: 2px solid var(--border);
   }
   article.actu {
-    background: #ffffff;
-    border: 1px solid #e5e5e0;
+    display: flex;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 16px 18px;
+    padding: 14px 16px;
     margin-bottom: 14px;
   }
-  .thumb {
-    width: 100%;
+  article.actu img {
+    width: 90px;
     height: 90px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    color: #fff;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
-  .thumb-fm { background: var(--fm); }
-  .thumb-ia { background: var(--ia); }
-  .thumb-apple { background: var(--apple); }
-  .thumb-jv { background: var(--jv); }
-  .thumb-tech { background: var(--tech); }
+  article.actu .content { flex: 1; min-width: 0; }
   article.actu h3 {
-    font-size: 1.05em;
     margin: 0 0 8px;
+    font-size: 1.02rem;
     font-weight: 700;
+    line-height: 1.35;
   }
   .why {
-    background: #f2f2ee;
-    border-left: 3px solid #999;
-    padding: 8px 12px;
-    font-size: 0.92em;
-    margin: 10px 0;
-    border-radius: 4px;
+    background: var(--highlight-bg);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    margin: 8px 0;
   }
   details {
     margin-top: 8px;
-    font-size: 0.92em;
+    font-size: 0.9rem;
   }
   summary {
     cursor: pointer;
+    color: var(--accent);
     font-weight: 600;
-    color: #2563eb;
-    padding: 4px 0;
+    font-size: 0.87rem;
+    list-style: none;
   }
-  details[open] summary { margin-bottom: 6px; }
-  details p { margin: 4px 0; }
-  details ul { margin: 4px 0; padding-left: 20px; }
-  details a { color: #2563eb; }
-  .rien {
-    color: #777;
+  summary::-webkit-details-marker { display: none; }
+  details p, details ul {
+    margin: 6px 0 0;
+    color: var(--text);
+  }
+  details ul { padding-left: 18px; }
+  details a { color: var(--accent); }
+  .empty {
+    color: var(--muted);
     font-style: italic;
-    padding: 8px 0;
+    font-size: 0.92rem;
   }
-  footer.brief-footer {
+  footer {
+    max-width: 1200px;
+    margin: 24px auto 0;
     text-align: center;
-    color: #999;
-    font-size: 0.82em;
-    margin-top: 40px;
-    padding-top: 16px;
-    border-top: 1px solid #e5e5e0;
+    color: var(--muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="brief-header">
-    <h1>Le Brief du dimanche 12 juillet 2026</h1>
-    <p>Votre revue de presse quotidienne</p>
-  </header>
+<header class="masthead">
+  <h1>Le Brief du dimanche 12 juillet 2026</h1>
+  <p>Revue de presse quotidienne de Julien</p>
+</header>
+
+<div class="grid">
 
   <section class="theme">
     <h2>🌍 France &amp; Monde</h2>
 
     <article class="actu">
-      <div class="thumb thumb-fm">🌍</div>
-      <h3>Après des frappes israéliennes au Liban, l'Iran referme le détroit d'Ormuz</h3>
-      <div class="why">🎯 Pourquoi c'est important : la fermeture d'Ormuz menace directement le trafic pétrolier mondial et marque une nouvelle escalade régionale.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Après de nouvelles frappes israéliennes visant le sud du Liban, l'Iran a annoncé la fermeture du détroit d'Ormuz tant que les États-Unis maintiennent leur intervention dans la région. Washington affirme être prêt à une riposte massive.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.franceinfo.fr/monde/iran/crise-dans-le-detroit-d-ormuz/apres-les-frappes-israeliennes-au-liban-l-iran-referme-le-detroit-d-ormuz_8072321.html" target="_blank" rel="noopener">franceinfo — Après les frappes israéliennes au Liban, l'Iran referme le détroit d'Ormuz</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Canicule : 37 départements en vigilance rouge, « danger extrême »</h3>
+        <div class="why">🎯 Pourquoi c'est important : risque sanitaire majeur pour environ 26 millions de Français, et menace directe sur les festivités du 14-Juillet.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Météo-France a placé 37 départements, dont toute l'Île-de-France, en vigilance rouge canicule dès dimanche midi, avec des pointes jusqu'à 41°C. La Tour Eiffel a fermé temporairement au public samedi et dimanche après-midi.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.franceinfo.fr/environnement/meteo/alertes-meteo-et-vigilances/alerte-vigilance-rouge-canicule-risque-tres-eleve-pour-la-sante-dans-37-departements-ce-12-juillet-2026_8104817.html" target="_blank" rel="noopener">franceinfo — vigilance rouge, 37 départements</a></li>
+            <li><a href="https://www.franceinfo.fr/environnement/meteo/bulletins-meteo/meteo-france-place-37-departements-en-vigilance-rouge-canicule-a-partir-de-dimanche-midi-46-en-vigilance-orange_8104178.html" target="_blank" rel="noopener">franceinfo — carte de vigilance</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
 
     <article class="actu">
-      <div class="thumb thumb-fm">🌍</div>
-      <h3>Une frappe israélienne fait au moins un mort dans le sud du Liban malgré le cessez-le-feu</h3>
-      <div class="why">🎯 Pourquoi c'est important : cette frappe fragilise l'accord de paix signé fin juin entre Israël et le Liban, à quelques jours de pourparlers prévus à Rome.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Une frappe israélienne a tué au moins une personne à Nabatiyé, dans le sud du Liban, malgré le cessez-le-feu en vigueur depuis juin avec le Hezbollah. Des discussions israélo-libanaises sont prévues à Rome les 15 et 16 juillet.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.franceinfo.fr/monde/iran/guerre-entre-les-etats-unis-israel-et-l-iran/au-liban-une-frappe-israelienne-fait-au-moins-un-mort-dans-le-sud-du-pays_8103380.html" target="_blank" rel="noopener">franceinfo — Au Liban, une frappe israélienne fait au moins un mort dans le sud du pays</a></li>
-          <li><a href="https://www.france24.com/fr/tag/liban/rss" target="_blank" rel="noopener">France 24 — Actualité Liban</a></li>
-        </ul>
-      </details>
-    </article>
-
-    <article class="actu">
-      <div class="thumb thumb-fm">⚽</div>
-      <h3>Mondial 2026 : la France affrontera l'Espagne en demi-finale mardi</h3>
-      <div class="why">🎯 Pourquoi c'est important : revanche très attendue après les défaites des Bleus face à la Roja en demi-finale de l'Euro 2024 et de la Ligue des Nations 2025.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>L'Espagne s'est qualifiée en battant la Belgique (2-1) et retrouvera la France, victorieuse du Maroc (2-0), mardi 14 juillet à 21h à Dallas.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.franceinfo.fr/coupe-du-monde/directs/direct-coupe-du-monde-2026-l-espagne-affronte-la-belgique-en-quart-de-finale-au-lendemain-de-la-victoire-de-l-equipe-de-france_8101370.html" target="_blank" rel="noopener">franceinfo — L'Espagne bat la Belgique et retrouvera la France en demi-finale</a></li>
-        </ul>
-      </details>
-    </article>
-
-    <article class="actu">
-      <div class="thumb thumb-fm">💧</div>
-      <h3>Sécheresse : vigilance activée sur les lacs de Saint-Cassien et Serre-Ponçon en PACA</h3>
-      <div class="why">🎯 Pourquoi c'est important : premier niveau de restriction de l'eau dans le Var et les Hautes-Alpes, un signal à suivre pour l'été en région PACA.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Le préfet de région a activé le niveau 1 de vigilance sécheresse pour les lacs de Saint-Cassien et de Serre-Ponçon le 10 juillet, en pleine période de forte fréquentation touristique.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/" target="_blank" rel="noopener">France 3 Provence-Alpes-Côte d'Azur — Actualités régionales</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Liban : une frappe israélienne fait un mort, la France confirme sa participation à une coalition de soutien à l'armée libanaise</h3>
+        <div class="why">🎯 Pourquoi c'est important : le cessez-le-feu israélo-libanais reste fragile, avec un risque d'escalade régionale impliquant directement la diplomatie française.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Une frappe israélienne a tué au moins une personne le 10 juillet dans le sud du Liban, malgré le cessez-le-feu en vigueur depuis juin. Paris a confirmé sa participation, aux côtés des États-Unis et de l'Italie, à une coalition de soutien à l'armée libanaise.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.franceinfo.fr/monde/iran/guerre-entre-les-etats-unis-israel-et-l-iran/au-liban-une-frappe-israelienne-fait-au-moins-un-mort-dans-le-sud-du-pays_8103380.html" target="_blank" rel="noopener">franceinfo — frappe au Liban</a></li>
+            <li><a href="https://www.france24.com/fr/moyen-orient/20260626-en-direct-moyen-orient-iran-etats-unis-frappes-attaques-navire-detroit-dormuz" target="_blank" rel="noopener">France 24 — suivi Moyen-Orient</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
   </section>
 
@@ -191,37 +184,37 @@
     <h2>🤖 IA</h2>
 
     <article class="actu">
-      <div class="thumb thumb-ia">🤖</div>
-      <h3>Apple porte plainte contre OpenAI pour vol de secrets industriels</h3>
-      <div class="why">🎯 Pourquoi c'est important : un affrontement judiciaire majeur entre deux géants de la tech autour du projet de device IA d'OpenAI, avec plus de 400 ex-employés Apple cités.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Apple accuse deux anciens employés, désormais chez OpenAI, d'avoir orchestré un système de captation d'informations confidentielles (appareils non lancés, fournisseurs, procédés de fabrication). OpenAI dément tout intérêt pour les secrets d'autrui.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.macrumors.com/2026/07/10/apple-sues-openai/" target="_blank" rel="noopener">MacRumors — Apple Sues OpenAI for Stealing Trade Secrets to Build AI Hardware</a></li>
-          <li><a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/" target="_blank" rel="noopener">9to5Mac — Apple sues OpenAI, accuses ex-employees of stealing trade secrets</a></li>
-          <li><a href="https://sixcolors.com/link/2026/07/apple-sues-openai-alleging-trade-secret-theft/" target="_blank" rel="noopener">Six Colors — Apple sues OpenAI, alleging trade secret theft</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Claude Cowork d'Anthropic arrive sur web et mobile</h3>
+        <div class="why">🎯 Pourquoi c'est important : Anthropic positionne Claude comme un agent de travail persistant, capable de suivre l'utilisateur d'un appareil à l'autre.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Anthropic déploie Claude Cowork en bêta sur web et mobile, d'abord pour les abonnés Max, avec exécution de tâches en arrière-plan même sans ordinateur ouvert.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.usine-digitale.fr/intelligence-artificielle/anthropic/claude-cowork-danthropic-debarque-enfin-sur-web-et-mobile-retour-sur-cette-fonctionnalite-que-tous-les-employes-de-bureau-vont-sarracher.RVGI4FG5PZGYRP22ZH2O7627W4.html" target="_blank" rel="noopener">L'Usine Digitale — Claude Cowork</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
 
     <article class="actu">
-      <div class="thumb thumb-ia">📜</div>
-      <h3>AI Act : les obligations de transparence entrent en vigueur le 2 août</h3>
-      <div class="why">🎯 Pourquoi c'est important : dès le 2 août, les IA génératives (GPT, Claude, Gemini, Mistral) devront rendre identifiable tout contenu qu'elles génèrent — une échéance concrète à anticiper.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>L'article 50 du règlement européen sur l'IA impose le marquage des contenus générés (texte, image, audio, vidéo) et l'information des utilisateurs exposés à des systèmes de catégorisation biométrique. Les obligations « haut risque » ont, elles, été repoussées à décembre 2027.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/ai-act-bruxelles-publie-le-code-de-bonnes-pratiques-sur-la-transparence-des-contenus-generes-par-intelligence-artificielle.HJMXEVLPDRFYFABBFDD5BNEI2E.html" target="_blank" rel="noopener">L'Usine Digitale — AI Act : Bruxelles publie le Code de bonnes pratiques sur la transparence</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Anthropic durcit ses restrictions d'accès à Claude en Chine, malgré des contournements</h3>
+        <div class="why">🎯 Pourquoi c'est important : illustre les tensions géopolitiques croissantes autour de l'accès aux modèles d'IA de pointe.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Anthropic multiplie les contrôles (vérification d'identité, blocage de paiements chinois) pour empêcher les entreprises contrôlées depuis la Chine d'accéder à Claude, sans y parvenir totalement.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.usine-digitale.fr/intelligence-artificielle/anthropic/face-aux-restrictions-danthropic-les-entreprises-technologiques-chinoises-multiplient-les-strategies-pour-acceder-a-claude.IQFUOWEDT5AO7CMFY3JWMN7OZQ.html" target="_blank" rel="noopener">L'Usine Digitale — restrictions Chine</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
   </section>
 
@@ -229,36 +222,72 @@
     <h2>🍎 Apple &amp; Mac</h2>
 
     <article class="actu">
-      <div class="thumb thumb-apple">🍎</div>
-      <h3>iOS 26.6 : Apple diffuse la quatrième bêta avant l'arrivée d'iOS 27</h3>
-      <div class="why">🎯 Pourquoi c'est important : dernière ligne droite avant iOS 27 en septembre — cette mise à jour se concentre sur la stabilité plutôt que les nouveautés.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Apple a diffusé le 6 juillet la 4e bêta développeur d'iOS 26.6 et iPadOS 26.6, suivie de la bêta publique le lendemain. Au programme : correctifs de bugs et une possible fonction anti-arrachage verrouillant l'iPhone en cas de vol à l'arraché.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.macrumors.com/2026/07/06/apple-seeds-ios-26-6-beta-4/" target="_blank" rel="noopener">MacRumors — Apple Seeds Fourth iOS 26.6 and iPadOS 26.6 Betas to Developers</a></li>
-          <li><a href="https://www.macrumors.com/2026/07/07/apple-seeds-ios-26-6-public-beta-4/" target="_blank" rel="noopener">MacRumors — Apple Seeds Fourth Public Betas of iOS 26.6</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Apple perd sa bataille juridique contre l'UE sur son statut de « gatekeeper »</h3>
+        <div class="why">🎯 Pourquoi c'est important : Apple devra continuer d'autoriser magasins d'applications tiers et interopérabilité en Europe, sans marge de recours nationale supplémentaire.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>La justice européenne a rejeté, le 8 juillet, le recours d'Apple contre sa désignation comme contrôleur d'accès au titre du DMA pour l'App Store et iOS. Apple envisage un appel devant la Cour de justice de l'UE.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.macrumors.com/2026/07/08/apple-loses-eu-fight-app-store-gatekeeper-label/" target="_blank" rel="noopener">MacRumors — Apple perd face à l'UE</a></li>
+            <li><a href="https://9to5mac.com/2026/07/08/apple-loses-major-antitrust-appeal-in-europe-remains-a-gatekeeper/" target="_blank" rel="noopener">9to5Mac — appel antitrust rejeté</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
 
     <article class="actu">
-      <div class="thumb thumb-apple">💻</div>
-      <h3>[Rumeur] Un MacBook Pro M6 attendu fin 2026, refonte M7 en 2027</h3>
-      <div class="why">🎯 Pourquoi c'est important : à surveiller si vous envisagez un achat de MacBook Pro — mieux vaut patienter pour la refonte annoncée.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Selon MacRumors, Apple prévoit un MacBook Pro 14" avec puce M6 fin 2026, suivi d'un modèle M7 largement redessiné (écran OLED, tactile, Dynamic Island) au premier semestre 2027. Non confirmé par Apple.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.macrumors.com/2026/07/01/redesigned-m7-macbook-pro-2027/" target="_blank" rel="noopener">MacRumors — M6 MacBook Pro Coming in Late 2026, Redesigned M7 Model Launching in 1H 2027</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>[Rumeur] iPhone 18 Pro : Dynamic Island réduit et gros bond caméra, sortie visée le 8 septembre</h3>
+        <div class="why">🎯 Pourquoi c'est important : premiers signaux concrets sur le design de la gamme iPhone 2026, avant l'arrivée du premier iPhone pliable.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Selon Mark Gurman, l'iPhone 18 Pro (6,3") et Pro Max (6,9") arriveraient à l'automne avec un Dynamic Island repositionné et une caméra principale à ouverture variable — une première pour l'iPhone.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.macrumors.com/2026/07/04/top-stories-macbook-ultra-iphone-18-rumors/" target="_blank" rel="noopener">MacRumors — rumeurs iPhone 18</a></li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="actu">
+      <div class="content">
+        <h3>macOS 27 « Golden Gate » : la bêta publique attendue dans les prochains jours</h3>
+        <div class="why">🎯 Pourquoi c'est important : premier aperçu public du prochain macOS avant la keynote de rentrée d'Apple.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Mac4Ever indique que la bêta publique de macOS 27 « Golden Gate » devrait être ouverte aux testeurs dans les tout prochains jours.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.mac4ever.com/archives" target="_blank" rel="noopener">Mac4Ever — archives juillet 2026</a></li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="actu">
+      <div class="content">
+        <h3>Microsoft coupe le support d'Office 2019 sur Mac à partir du 13 juillet</h3>
+        <div class="why">🎯 Pourquoi c'est important : les utilisateurs encore sous Office 2019 sur Mac basculent en lecture seule dès demain.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Passé le 13 juillet 2026, Office 2019 pour Mac perd son support actif et bascule en lecture seule selon Microsoft.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.mac4ever.com/actu" target="_blank" rel="noopener">Mac4Ever — actualité Mac</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
   </section>
 
@@ -266,31 +295,67 @@
     <h2>🎮 Jeux vidéo</h2>
 
     <article class="actu">
-      <div class="thumb thumb-jv">🎮</div>
-      <h3>Assassin's Creed Black Flag Resynced débarque sur PS5</h3>
-      <div class="why">🎯 Pourquoi c'est important : le retour très attendu du volet pirate de 2013, entièrement repensé avec DualSense, PSSR 2.0 et chargements optimisés.</div>
-      <details>
-        <summary>Lire le résumé ▾</summary>
-        <p>Sorti le 9 juillet, ce remake profite du retour haptique, des gâchettes adaptatives, de l'Audio 3D Tempest et de la technologie d'upscaling PSSR 2.0 sur PS5.</p>
-      </details>
-      <details>
-        <summary>Sources ▾</summary>
-        <ul>
-          <li><a href="https://www.jeuxvideo.com/jeux/sorties/machine-22/annee-2026/mois-7/" target="_blank" rel="noopener">JeuxVideo.com — Sorties de jeux vidéo de juillet 2026 sur PS5</a></li>
-        </ul>
-      </details>
+      <div class="content">
+        <h3>Xbox : Microsoft licencie 4 800 personnes, restructuration historique de la division</h3>
+        <div class="why">🎯 Pourquoi c'est important : environ 20 % des effectifs jeu vidéo de Xbox supprimés en un an, plusieurs studios cédés ou rendus indépendants.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Microsoft supprime environ 4 800 postes, dont 1 600 chez Xbox Game Studios. Compulsion Games et Double Fine deviennent indépendants ; Ninja Theory, Undead Labs et Arkane changent d'avenir.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.macg.co/ailleurs/2026/07/microsoft-licencie-4-800-personnes-la-division-xbox-paie-le-plus-lourd-tribut-309603" target="_blank" rel="noopener">MacGeneration — licenciements Xbox</a></li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="actu">
+      <div class="content">
+        <h3>Assassin's Creed Black Flag Resynced : le remake débarque sur PS5</h3>
+        <div class="why">🎯 Pourquoi c'est important : premier grand remake Ubisoft de l'année, avec retours haptiques et gâchettes adaptatives DualSense.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Sorti le 9 juillet, ce remake technique complet du classique Ubisoft profite des capacités spécifiques de la PS5.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.jeuxvideo.com/jeux/sorties/machine-22/annee-2026/mois-7/" target="_blank" rel="noopener">Jeuxvideo.com — sorties juillet 2026</a></li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="actu">
+      <div class="content">
+        <h3>Palworld quitte l'early access : version 1.0 disponible sur PS5</h3>
+        <div class="why">🎯 Pourquoi c'est important : le phénomène « Pokémon-like » de 2024 franchit enfin l'étape de la sortie complète sur console Sony.</div>
+        <details>
+          <summary>Lire le résumé ▾</summary>
+          <p>Depuis le 10 juillet, Palworld propose sa version 1.0 complète sur PS5, après plusieurs mois d'accès anticipé.</p>
+        </details>
+        <details>
+          <summary>Sources ▾</summary>
+          <ul>
+            <li><a href="https://www.jeuxvideo.com/jeux/sorties/machine-22/annee-2026/mois-7/" target="_blank" rel="noopener">Jeuxvideo.com — sorties juillet 2026</a></li>
+          </ul>
+        </details>
+      </div>
     </article>
   </section>
 
   <section class="theme">
     <h2>💻 Tech &amp; Geek</h2>
-    <p class="rien">Rien de marquant aujourd'hui.</p>
+    <p class="empty">Rien de marquant aujourd'hui.</p>
   </section>
 
-  <footer class="brief-footer">
-    9 actus au total · généré le 12 juillet 2026 à 06h00 (Europe/Paris)
-  </footer>
-
 </div>
+
+<footer>
+  11 actus au total · généré le 12 juillet 2026 à 15:20 (Europe/Paris)
+</footer>
+
 </body>
 </html>
